@@ -59,7 +59,6 @@ function stationsForLine(line: string) {
   const lineStations = stations.filter(station => station.properties.lines.includes(line))
   let current = lineStations.find(station => station.properties.name === line)
   if (!current) {
-    console.log('No such station as ', line)
     return []
   }
   let remainingStations = lineStations.filter(station => station.properties.name !== line)
@@ -127,7 +126,6 @@ function initGraph() {
 }
 
 export function getShortestPath(from: string, to: string) {
-  console.log('hi')
   if (!graph) {
     initGraph()
   }
