@@ -99,6 +99,15 @@ function initGraph() {
 
   window.n = stations.map(station => station.properties.name)
   console.log(lines)
+
+  //Add hacks for missing links where there are alternate routes not included in the main algorithm.
+  try {
+    addEdge('flinders street', 'richmond')
+    addEdge('flinders street', 'jolimont-mcg') 
+    addEdge('southern cross', 'north melbourne') 
+  } catch(e){
+  }
+
   for (const line of lines) {
     const lineStations = stationsForLine(line)
 
